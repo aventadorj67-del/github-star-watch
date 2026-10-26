@@ -1,11 +1,22 @@
 # GitHub Star Watch
 
+[English](README.md) | [繁體中文](README.zh-TW.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+
 Monitor fast-growing GitHub repositories by taking repeated star snapshots and
 ranking repos by recent star velocity.
 
 This is especially useful for watching fast-moving developer-tool trends such as
 AI agents, MCP, coding-agent plugins, agent skills, and new open-source tools
 before they become obvious on broader trending pages.
+
+## Requirements
+
+- Python 3.10 or newer.
+- Python's standard library only; no additional packages are required.
+- Internet access to the GitHub API.
+
+The commands below use a macOS/Linux shell. On Windows, replace `python3` with
+`py -3`; use the PowerShell token example below.
 
 ## What It Does
 
@@ -15,19 +26,20 @@ before they become obvious on broader trending pages.
 - Prints a fastest-growing ranking with star delta, stars/hour, total stars, language, description, and URL.
 - Can run once from a terminal or continuously as a background watcher.
 
-## 快速開始
+## Quick Start
 
 ```bash
 python3 github_star_watch.py --once
 ```
 
-第一次執行只會建立快照，通常要隔一段時間再跑一次，先會有升速排名：
+The first run establishes a baseline. Wait before running it again to calculate
+star growth:
 
 ```bash
 python3 github_star_watch.py --once
 ```
 
-持續監測：
+Run continuously:
 
 ```bash
 python3 github_star_watch.py --watch --interval-minutes 30
@@ -42,6 +54,13 @@ low. A token is recommended for reliable watch mode:
 export GITHUB_TOKEN=ghp_your_token_here
 ```
 
+On Windows PowerShell:
+
+```powershell
+$env:GITHUB_TOKEN = "ghp_your_token_here"
+```
+
+Replace the placeholder with your own token locally.
 Do not commit tokens, logs, or snapshot databases.
 
 ## Common Commands
@@ -106,6 +125,9 @@ Top 20 fastest-growing GitHub repos
 See [`examples/sample_report.md`](examples/sample_report.md) for an example
 daily report format built from the watcher data.
 
+The watcher prints terminal rankings; generating a full dated daily report is a
+separate workflow. The example is a template, not an automatic report generator.
+
 ## macOS LaunchAgent
 
 For a background watcher on macOS, adapt the template in
@@ -115,7 +137,7 @@ Update the paths to match your local clone and log directory before loading it.
 
 ## Repository Hygiene
 
-The public repository should contain source and examples only. The following are
+The repository contains source and examples only. The following are
 runtime/private artifacts and are ignored by default:
 
 - `star_snapshots.json`
@@ -128,3 +150,10 @@ runtime/private artifacts and are ignored by default:
 
 Small, practical, and intentionally simple. The script currently uses Python's
 standard library only.
+
+Search results are a candidate sample, not every GitHub repository. Each repo
+retains up to 1,600 snapshots; useful history depends on collection frequency.
+Missing or stale observations do not mean zero star growth.
+
+These translations cover documentation only. Terminal messages remain in
+English and Chinese.
