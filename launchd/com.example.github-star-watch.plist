@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.example.github-star-watch</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/path/to/github-star-watch/github_star_watch.py</string>
+    <string>--watch</string>
+    <string>--interval-minutes</string>
+    <string>30</string>
+    <string>--retry-delay-minutes</string>
+    <string>5</string>
+    <string>--max-retry-delay-minutes</string>
+    <string>60</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/path/to/github-star-watch</string>
+
+  <key>StandardOutPath</key>
+  <string>/path/to/github-star-watch/github_star_watch.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/path/to/github-star-watch/github_star_watch.err.log</string>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <true/>
+</dict>
+</plist>
