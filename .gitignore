@@ -1,0 +1,25 @@
+# Runtime state
+star_snapshots.json
+*.log
+daily_reports/
+skill_recommendations_log.md
+
+# Local/private config
+.env
+.env.*
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# macOS
+.DS_Store
+
+# Build/package artifacts
+dist/
+build/
+*.egg-info/
